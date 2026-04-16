@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Housewarming Celebration</title>
+    <style>
+        /* This creates a soft texture for the background */
+        body { 
+            background-color: #fdfcf8;
+            background-image: radial-gradient(#d4af37 0.5px, transparent 0.5px);
+            background-size: 20px 20px; /* Delicate dot pattern */
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            min-height: 100vh; 
+            margin: 0; 
+            font-family: 'Georgia', serif; 
+        }
+
+        .card { 
+            background: white; 
+            border-radius: 15px; 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15); 
+            text-align: center; 
+            border: 1px solid #e0e0e0; 
+            max-width: 420px; 
+            overflow: hidden;
+            margin: 20px;
+        }
+
+        .invitation-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-bottom: 3px solid #d4af37;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        h1 { 
+            color: #4a3728; 
+            font-size: 28px; 
+            margin: 0 0 15px 0;
+            font-weight: normal;
+            letter-spacing: 1px;
+        }
+
+        p { color: #555; line-height: 1.8; font-size: 1.05rem; }
+
+        .details { 
+            margin: 25px 0; 
+            padding: 20px 0;
+            border-top: 1px double #d4af37; 
+            border-bottom: 1px double #d4af37;
+        }
+
+        .gold-label { 
+            color: #b8860b; 
+            font-weight: bold; 
+            text-transform: uppercase; 
+            display: block;
+            font-size: 0.8em;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+
+        /* The RSVP Button */
+        .rsvp-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 30px;
+            background-color: #4a3728;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+            font-family: Arial, sans-serif;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+
+        .rsvp-btn:hover {
+            background-color: #d4af37;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=800&q=80" 
+             alt="Our New Home" 
+             class="invitation-image">
+        
+        <div class="content">
+            <h1>New Home, New Memories</h1>
+            <p>The keys are ours, the boxes are unpacked, and now it's time to celebrate! Please join us for our Housewarming party.</p>
+            
+            <div class="details">
+                <span class="gold-label">Date & Time</span>
+                <p>Saturday, May 16th | 5:00 PM onwards</p>
+                
+                <span class="gold-label">The Address</span>
+                <p>789 Sunset Blvd, Emerald Hills<br>City, State 12345</p>
+            </div>
+            
+            <p><i>Dinner and drinks will be provided.</i></p>
+
+            <a href="mailto: anushiyakrishnaveni@gmail.com?subject=RSVP: Housewarming" class="rsvp-btn">RSVP VIA EMAIL</a>
+        </div>
+    </div>
+
+</body>
+</html>
