@@ -5,40 +5,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Housewarming Celebration</title>
     <style>
-        /* This creates a soft texture for the background */
+        /* 1. ANIMATION KEYFRAMES */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes shine {
+            100% { left: 125%; }
+        }
+
+        /* 2. BASE STYLES */
         body { 
             background-color: #fdfcf8;
             background-image: radial-gradient(#d4af37 0.5px, transparent 0.5px);
-            background-size: 20px 20px; /* Delicate dot pattern */
+            background-size: 20px 20px;
             display: flex; 
             justify-content: center; 
             align-items: center; 
             min-height: 100vh; 
             margin: 0; 
             font-family: 'Georgia', serif; 
+            overflow-x: hidden;
         }
 
+        /* 3. THE CARD WITH ENTRANCE ANIMATION */
         .card { 
             background: white; 
-            border-radius: 15px; 
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15); 
+            border-radius: 20px; 
+            box-shadow: 0 20px 60px rgba(0,0,0,0.12); 
             text-align: center; 
-            border: 1px solid #e0e0e0; 
             max-width: 420px; 
             overflow: hidden;
             margin: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            animation: fadeInUp 1s ease-out; /* Load animation */
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px); /* Gentle lift on hover */
+        }
+
+        /* 4. INTERACTIVE IMAGE SECTION */
+        .image-container {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+            border-bottom: 3px solid #d4af37;
         }
 
         .invitation-image {
             width: 100%;
-            height: 250px;
+            height: 100%;
             object-fit: cover;
-            border-bottom: 3px solid #d4af37;
+            transition: transform 0.8s ease; /* Smooth zoom transition */
         }
 
-        .content {
-            padding: 40px 30px;
+        .card:hover .invitation-image {
+            transform: scale(1.1); /* Zoom in effect */
         }
+
+        .content { padding: 40px 30px; }
 
         h1 { 
             color: #4a3728; 
@@ -48,67 +76,98 @@
             letter-spacing: 1px;
         }
 
-        p { color: #555; line-height: 1.8; font-size: 1.05rem; }
-
         .details { 
             margin: 25px 0; 
             padding: 20px 0;
             border-top: 1px double #d4af37; 
             border-bottom: 1px double #d4af37;
+            position: relative;
         }
 
         .gold-label { 
             color: #b8860b; 
             font-weight: bold; 
             text-transform: uppercase; 
-            display: block;
             font-size: 0.8em;
             letter-spacing: 2px;
-            margin-bottom: 5px;
         }
 
-        /* The RSVP Button */
+        /* 5. INTERACTIVE RSVP BUTTON WITH SHINE EFFECT */
         .rsvp-btn {
+            position: relative;
             display: inline-block;
             margin-top: 20px;
-            padding: 12px 30px;
+            padding: 14px 40px;
             background-color: #4a3728;
             color: white;
             text-decoration: none;
-            border-radius: 5px;
-            transition: background 0.3s ease;
-            font-family: Arial, sans-serif;
+            border-radius: 50px;
+            font-family: 'Arial', sans-serif;
             font-size: 0.9em;
             font-weight: bold;
+            overflow: hidden; /* Clips the shine */
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(74, 55, 40, 0.3);
+        }
+
+        /* The Shine effect */
+        .rsvp-btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -75%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 100%);
+            transform: skewX(-25deg);
+        }
+
+        .rsvp-btn:hover::after {
+            animation: shine 0.75s;
         }
 
         .rsvp-btn:hover {
             background-color: #d4af37;
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Small bounce for the house icon */
+        .icon {
+            font-size: 30px;
+            display: block;
+            margin-bottom: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover .icon {
+            transform: scale(1.2) rotate(-5deg);
         }
     </style>
 </head>
 <body>
 
     <div class="card">
-        <img src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=800&q=80" 
-             alt="Our New Home" 
-             class="invitation-image">
+        <div class="image-container">
+            <img src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=800&q=80" 
+                 alt="New Home" 
+                 class="invitation-image">
+        </div>
         
         <div class="content">
+            <span class="icon">🏠</span>
             <h1>New Home, New Memories</h1>
             <p>The keys are ours, the boxes are unpacked, and now it's time to celebrate! Please join us for our Housewarming party.</p>
             
             <div class="details">
                 <span class="gold-label">Date & Time</span>
-                <p>Saturday, May 16th | 5:00 PM onwards</p>
+                <p>Thursday, April 16th | 5:00 PM onwards</p>
                 
                 <span class="gold-label">The Address</span>
-                <p>789 Sunset Blvd, Emerald Hills<br>City, State 12345</p>
+                <p>789 Sunset Blvd, Emerald Hills<br>Chennai, Tamilnadu 600100</p>
             </div>
             
-            <p><i>Dinner and drinks will be provided.</i></p>
-
-            <a href="mailto: anushiyakrishnaveni@gmail.com?subject=RSVP: Housewarming" class="rsvp-btn">RSVP VIA EMAIL</a>
+            <a href="mailto:anushiyakrishnaveni@gmail.com" class="rsvp-btn">RSVP NOW</a>
         </div>
     </div>
 
